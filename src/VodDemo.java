@@ -1,15 +1,15 @@
+import com.qcloud.Module.Vod;
+import com.qcloud.QcloudApiModuleCenter;
+import com.qcloud.Utilities.Json.JSONObject;
+import com.qcloud.Utilities.SHA1;
+
 import java.io.File;
 import java.util.TreeMap;
-
-import com.qcloud.QcloudApiModuleCenter;
-import com.qcloud.Module.Vod;
-import com.qcloud.Utilities.SHA1;
-import com.qcloud.Utilities.Json.JSONObject;
 
 public class VodDemo {
 	public static void main(String[] args) {
 		TreeMap<String, Object> config = new TreeMap<String, Object>();
-		
+
 		config.put("SecretId", "你的secretId");
 		config.put("SecretKey", "你的secretKey");
 		config.put("RequestMethod", "POST");

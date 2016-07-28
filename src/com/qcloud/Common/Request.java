@@ -1,13 +1,11 @@
 package com.qcloud.Common;
 
-import java.io.BufferedReader;
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.UnsupportedEncodingException;
+import com.qcloud.Utilities.MD5;
+
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLSession;
+import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
@@ -15,12 +13,6 @@ import java.net.URLEncoder;
 import java.util.Map;
 import java.util.Random;
 import java.util.TreeMap;
-
-import javax.net.ssl.HostnameVerifier;
-import javax.net.ssl.HttpsURLConnection;
-import javax.net.ssl.SSLSession;
-
-import com.qcloud.Utilities.MD5;
 
 /**
  * @brief 请求调用类
@@ -31,6 +23,14 @@ public class Request {
 	protected static String rawResponse = "";
 	protected static String version = "SDK_JAVA_1.3";
 	protected static int timeOut = 100;//设置连接主机的超时时间，单位：毫秒，可以根据实际需求合理更改 timeOut 的值。
+	public static TreeMap<String, Object> config = new TreeMap<>();
+	static{
+		config.put("SecretId", "AKID2P0bL9v0EyFbnh8chzDdJP4oZiiuZRYy");
+		config.put("SecretKey", "9HNQloXm3dTj2ODSGvveTFxvMWiTqV63");
+		config.put("RequestMethod", "GET");
+		config.put("DefaultRegion", "sh");
+	}
+
 
 	public static String getRequestUrl() {
 		return requestUrl;
