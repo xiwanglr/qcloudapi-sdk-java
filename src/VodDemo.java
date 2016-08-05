@@ -1,3 +1,4 @@
+import com.qcloud.Common.Request;
 import com.qcloud.Module.Vod;
 import com.qcloud.QcloudApiModuleCenter;
 import com.qcloud.Utilities.Json.JSONObject;
@@ -8,16 +9,17 @@ import java.util.TreeMap;
 
 public class VodDemo {
 	public static void main(String[] args) {
-		TreeMap<String, Object> config = new TreeMap<String, Object>();
-
-		config.put("SecretId", "你的secretId");
-		config.put("SecretKey", "你的secretKey");
-		config.put("RequestMethod", "POST");
-		config.put("DefaultRegion", "gz");
-		QcloudApiModuleCenter module = new QcloudApiModuleCenter(new Vod(), config);
+//		TreeMap<String, Object> config = new TreeMap<String, Object>();
+//
+//		config.put("SecretId", "你的secretId");
+//		config.put("SecretKey", "你的secretKey");
+//		config.put("RequestMethod", "POST");
+//		config.put("DefaultRegion", "gz");
+		QcloudApiModuleCenter module = new QcloudApiModuleCenter(new Vod(), Request.config);
 		try{
 			System.out.println("starting...");
-			String fileName = "d:\\test.rmvb";
+//			String fileName = "d:\\test.rmvb";
+			String fileName = "E:\\aaa.wmv";
 			long fileSize = new File(fileName).length();
 			String fileSHA1 = SHA1.fileNameToSHA(fileName);
 			
@@ -39,14 +41,14 @@ public class VodDemo {
 				 * 亲，输入参数的类型，记得参考wiki详细说明
 				 */
 				params.put("fileSha", fileSHA1);
-				params.put("fileType", "rmvb");
-				params.put("fileName", "Test");
+				params.put("fileType", "wmv");
+				params.put("fileName", "aaa2");
 				params.put("fileSize", fileSize);
 				params.put("dataSize", tmpDataSize);
 				params.put("offset", tmpOffset);
 				params.put("file", fileName);
-				params.put("isTranscode", 0);
-				params.put("isScreenshot", 0);
+				params.put("isTranscode", 1);
+				params.put("isScreenshot", 1);
 				params.put("isWatermark", 0);
 				
 				
@@ -79,7 +81,8 @@ public class VodDemo {
 		}
 		catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("error..."+e.toString());
+			System.out.println("error..."+e.getMessage());
 		}
 	}
+
 }

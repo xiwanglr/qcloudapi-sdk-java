@@ -27,7 +27,7 @@ public class Request {
 	static{
 		config.put("SecretId", "AKID2P0bL9v0EyFbnh8chzDdJP4oZiiuZRYy");
 		config.put("SecretKey", "9HNQloXm3dTj2ODSGvveTFxvMWiTqV63");
-		config.put("RequestMethod", "GET");
+		config.put("RequestMethod", "POST");
 		config.put("DefaultRegion", "sh");
 	}
 

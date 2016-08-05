@@ -43,6 +43,9 @@ public class Vod extends Base {
 	 pageSize	否	Int	分页大小，范围在10-100之间
 	 */
 	public String DescribeVodInfo(TreeMap<String, Object> params) throws NoSuchAlgorithmException, IOException {
-        return call("DescribeVodInfo", params, null);
+        return call("DescribeVodInfo", params);
+	}
+	public String DescribeVodPlayUrls(TreeMap<String, Object> params) throws NoSuchAlgorithmException, IOException {
+        return call("DescribeVodPlayUrls", params);
 	}
 }

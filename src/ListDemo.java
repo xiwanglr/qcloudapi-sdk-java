@@ -8,8 +8,9 @@ import java.util.TreeMap;
 
 public class ListDemo {
 	public static void main(String[] args) {
-		DescribeVodInfo();
-		CreateLVBChannel();
+//		DescribeVodInfo();
+		DescribeVodPlayUrls();
+//		CreateLVBChannel();
 	}
 
 	public static void DescribeVodInfo(){
@@ -17,7 +18,24 @@ public class ListDemo {
 		try{
 			System.out.println("starting...");
 			TreeMap<String, Object> params = new TreeMap<>();
+//			params.put("fileIds.1","14651978969262852450");
+			params.put("fileIds.1","14651978969262855738");
 			String result = module.call("DescribeVodInfo", params);
+			System.out.println(new JSONObject(result));
+			System.out.println("end...");
+		}catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("error..."+e.getMessage());
+		}
+	}
+	public static void DescribeVodPlayUrls(){
+		QcloudApiModuleCenter module = new QcloudApiModuleCenter(new Vod(), Request.config);
+		try{
+			System.out.println("starting...");
+			TreeMap<String, Object> params = new TreeMap<>();
+//			params.put("fileIds.1","14651978969262852450");
+			params.put("fileId","14651978969262855738");
+			String result = module.call("DescribeVodPlayUrls", params);
 			System.out.println(new JSONObject(result));
 			System.out.println("end...");
 		}catch (Exception e) {
